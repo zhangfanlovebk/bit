@@ -1,5 +1,5 @@
 #define CRT_SECURE_NO_WARNINGS 1
-//11.1作业
+//11.1
 //1.写一个宏可以将一个数字的奇数位和偶数位交换
 //#include <stdio.h>
 //#define CHANGE(X) \
@@ -13,7 +13,7 @@
 //}
 
 
-//11.5作业
+//11.5
 //1.模拟实现strstr函数（在串中查找指定字符串的第一次出现）
 //#include <stdio.h>  
 //const char *my_strstr(const char *str1, const char *str2)  
@@ -119,7 +119,7 @@
 //    return 0;
 //}
 
-//11.7作业
+//11.7
 //1.实现一个函数，可以左旋字符串中的k个字符。
 //AABCD左旋一个字符得到ABCDA
 //AABCD左旋两个字符得到BCDAA
@@ -284,7 +284,7 @@
 //}
 
 
-//11.8作业
+//11.8
 //1.求第n个斐波那契数（非递归实现）。
 //#include <stdio.h>
 //int fib(int n)
@@ -420,7 +420,7 @@
 //    return 0;
 //}
 
-//11.12作业
+//11.12
 1.递归实现字符串的逆序。
 #include<stdio.h>
 #include<string.h>  
