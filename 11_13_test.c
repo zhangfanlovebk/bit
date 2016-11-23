@@ -421,112 +421,144 @@
 //}
 
 //11.12
-1.递归实现字符串的逆序。
-#include<stdio.h>
-#include<string.h>  
-char s[100];  
-int len;  
-void reverse(int i,int j)  
-{  
-    char temp;
-	if(i==len/2){
-        return 0; 
-	} 
-    temp=s[i];  
-    s[i]=s[j];  
-    s[j]=temp;  
-    reverse(++i,--j);   
-}
+//1.递归实现字符串的逆序。
+//#include<stdio.h>
+//#include<string.h>  
+//char s[100];  
+//int len;  
+//void reverse(int i,int j)  
+//{  
+//    char temp;
+//	if(i==len/2){
+//        return 0; 
+//	} 
+//    temp=s[i];  
+//    s[i]=s[j];  
+//    s[j]=temp;  
+//    reverse(++i,--j);   
+//}
+//
+//int main()  
+//{  
+//    scanf("%s",&s);  
+//    len=strlen(s);   
+//    reverse(0,len-1);   
+//    printf("%s\n",s);
+//	return 0;
+//}
+//
+//2.模拟实现一个printf，
+//  函数可以实现my_printf("s ccc.","hello",'b','i','t');
+//第一种
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <stdarg.h>
+//void my_printf(const char *str, ...)
+//{
+//    va_list arg;//定义va_list类型变量arg 
+//    va_start(arg, str);
+//			//arg初始化,n是第一个可见参数名字;使arg指向第一个可选参数
+//    while (*str)
+//    {
+//        switch (*str)
+//        {
+//        case 'c':
+//        {
+//            char ch = va_arg(arg, char);
+//			//返回参数列表中的当前参数并使arg指向参数列表中的下一个参数
+//            putchar(ch);
+//            break;
+//        }
+//        case 's':
+//        {
+//            char *pc = va_arg(arg, char *);
+//				//va_arg的第二个参数是你要返回的参数的类型
+//            while (*pc)
+//            {
+//                putchar(*pc);
+//                pc++;
+//            }
+//            break;
+//        }
+//        case 'd':
+//        {
+//            int q=va_arg(arg,int);//此处返回整型
+//            putchar(q+'0');
+//            break;
+//        }
+//        default:
+//            putchar(*str);
+//            break;
+//        }
+//        str++;
+//    }
+//    va_end(arg);//把arg指针清为NULL 
+//}
+// 
+//int main()
+//{
+//    my_printf("s ccc d\n","hello",'b','i','t',6);
+//    return 0;
+//}
+//
+//
+//第二种
+//#include <stdio.h>  
+//#include <stdlib.h>  
+//#include <stdarg.h>  
+//void my_printf(char * val, ...)                    //可变参数列表  
+//{  
+//    char *c = NULL;  
+//    va_list arg;                               //typedef char * va_list  
+//    va_start(arg, val);                        //获取参数地址    
+//    while (*val != '\0') {                     //val指向"val:ccc s"  
+//        if (*val == 'c') {  
+//            putchar(va_arg(arg, char));  
+//        }  
+//        else if (*val == 's') {  
+//            puts(va_arg(arg, char*));  
+//        }  
+//        else  
+//            putchar(*val);  
+//        ++val;  
+//    }  
+//    va_end(arg);  
+//}  
+//  
+//int main()  
+//{  
+//	my_printf("s ccc\n","hello",'b','i','t');    
+//    return 0;  
+//} 
 
-int main()  
-{  
-    scanf("%s",&s);  
-    len=strlen(s);   
-    reverse(0,len-1);   
-    printf("%s\n",s);
-	return 0;
-}
+//1. 打印100~200 之间的素数
 
-2.模拟实现一个printf，
-  函数可以实现my_printf("s ccc.","hello",'b','i','t');
-第一种
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdarg.h>
-void my_printf(const char *str, ...)
-{
-    va_list arg;//定义va_list类型变量arg 
-    va_start(arg, str);
-			//arg初始化,n是第一个可见参数名字;使arg指向第一个可选参数
-    while (*str)
-    {
-        switch (*str)
-        {
-        case 'c':
-        {
-            char ch = va_arg(arg, char);
-			//返回参数列表中的当前参数并使arg指向参数列表中的下一个参数
-            putchar(ch);
-            break;
-        }
-        case 's':
-        {
-            char *pc = va_arg(arg, char *);
-				//va_arg的第二个参数是你要返回的参数的类型
-            while (*pc)
-            {
-                putchar(*pc);
-                pc++;
-            }
-            break;
-        }
-        case 'd':
-        {
-            int q=va_arg(arg,int);//此处返回整型
-            putchar(q+'0');
-            break;
-        }
-        default:
-            putchar(*str);
-            break;
-        }
-        str++;
-    }
-    va_end(arg);//把arg指针清为NULL 
-}
- 
+
+#include <math.h>
+
 int main()
+
 {
-    my_printf("s ccc d\n","hello",'b','i','t',6);
+
+    int i,n,k;
+
+    for(n=100;n<201;n++)
+
+    {
+
+       k=sqrt(n);
+
+    for(i=2;i<=k;i++)
+
+           if(n%i==0)break;
+
+       if(i>k)
+
+           printf("%d\n",n);
+
+    }
+
     return 0;
+
 }
-
-
-第二种
-#include <stdio.h>  
-#include <stdlib.h>  
-#include <stdarg.h>  
-void my_printf(char * val, ...)                    //可变参数列表  
-{  
-    char *c = NULL;  
-    va_list arg;                               //typedef char * va_list  
-    va_start(arg, val);                        //获取参数地址    
-    while (*val != '\0') {                     //val指向"val:ccc s"  
-        if (*val == 'c') {  
-            putchar(va_arg(arg, char));  
-        }  
-        else if (*val == 's') {  
-            puts(va_arg(arg, char*));  
-        }  
-        else  
-            putchar(*val);  
-        ++val;  
-    }  
-    va_end(arg);  
-}  
-  
-int main()  
-{  
-	my_printf("s ccc\n","hello",'b','i','t');    
-    return 0;  
-} 
