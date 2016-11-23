@@ -532,33 +532,67 @@
 //} 
 
 //1. 打印100~200 之间的素数
+//#include <stdio.h>
+//#include <math.h>
+//int main()
+//{
+//    int i,n,k;
+//	int count=0;
+//    for(n=100;n<201;n++)
+//    {
+//		k=sqrt(n);
+//		for(i=2;i<=k;i++)
+//		{
+//			if(n%i==0)
+//			{
+//				break;
+//			}
+//		}
+//		if(i>k)
+//		{
+//			printf("%d ",n);
+//			count++;
+//		}
+//    }
+//	printf("\ncount=%d\n",count);
+//    return 0;
+//}
 
+//13.求2/1,3/2,5/3,8/5,13/8......序列的前20项之和
 #include <stdio.h>
-
-#include <math.h>
-
 int main()
-
 {
-
-    int i,n,k;
-
-    for(n=100;n<201;n++)
-
-    {
-
-       k=sqrt(n);
-
-    for(i=2;i<=k;i++)
-
-           if(n%i==0)break;
-
-       if(i>k)
-
-           printf("%d\n",n);
-
-    }
-
-    return 0;
-
+	int i;
+	double on=2.0,down=1.0;
+	double sum=0.0,tmp ;
+	for(i=1;i<=20;i++)
+	{
+		sum+=on/down;
+		tmp=on;
+		on+=down;
+		down=tmp;
+	}
+	printf("sum=%lf\n",sum);
+	return 0;
 }
+
+//14.求s=a+aa+aaa+aaaa+aaaaa(其中a是一个数字)
+//#include <stdio.h>
+//#include <math.h>
+//int main ()
+//{
+//	int n=0,s, a=0,s2=0;
+//	int i,  k;
+//	int s1=0;
+//	printf("请输入a和n：\n");
+//	scanf("%d%d",&a,&n);
+//	for(i=0;i<n;i++)
+//	{
+//		k=pow(10,i);
+//		s1+=k;
+//		s2+=s1;
+//	}
+//	s=a*s2;
+//	printf("s=%d",s);
+//	return 0;
+//}
